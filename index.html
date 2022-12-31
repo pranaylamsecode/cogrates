@@ -69,7 +69,9 @@ button {
         <source src="dummy.mp3" type="audio/mpeg" >
      </audio>
  -->
-   
+
+ <audio src="dummy.mp3" id="myAudio"></audio>
+
 
      <script>
         (function () {
@@ -131,12 +133,10 @@ button {
 
     $(document).ready(function () {
 
-        var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'dummy.mp3');
-    
-    audioElement.addEventListener('ended', function() {
-        this.play();
-    }, false);
+
+        playMyAudio();
+
+       
          
         SetGlobals();
         InitializeButton();
@@ -190,6 +190,10 @@ button {
 
     function RandomFromTo(from, to) {
         return Math.floor(Math.random() * (to - from + 1) + from);
+    }
+
+    function playMyAudio(){
+      $("#myAudio").play();
     }
 
 
@@ -300,9 +304,7 @@ button {
         };
     })();
     
-    setTimeout(() => {
-    	StopConfetti();
-    },10000)
+  
 })();
 
      </script>
